@@ -1,0 +1,36 @@
+##Day01
+1、使用docker-compose部署django+postgres+redis+ngix
+   - 创建docker-compose.yml文件
+   - 配置PostgreSQL数据库
+   - 配置Redis缓存
+   - 配置Nginx作为反向代理
+   - 配置Django应用
+2、使用docker-compose命令启动和停止服务
+   - 启动服务：`docker-compose up -d`
+   - 停止服务：`docker-compose down`
+   - 查看服务状态：`docker-compose ps`
+   - 查看日志：`docker-compose logs`
+   - 重启服务：`docker-compose restart`
+   - 查看容器的IP地址：`docker inspect <container_id> | grep IPAddress`
+   - 进入容器：`docker exec -it <container_id> /bin/bash`
+   - 查看容器内的文件：`docker exec -it <container_id> ls /path/to/directory`
+   - 进入PostgreSQL容器：`docker exec -it <postgres_container_id> psql -U <username> -d <database>`
+   - 进入Redis容器：`docker exec -it <redis_container_id> redis-cli`
+   - 进入Django容器：`docker exec -it <django_container_id> /bin/bash`
+   - 进入Nginx容器：`docker exec -it <nginx_container_id> /bin/bash`
+   - 查看Django应用的运行状态：`docker exec -it <django_container_id> python manage.py runserver`
+   - 查看PostgreSQL数据库状态：`docker exec -it <postgres_container_id> pg_isready`
+3、使用github的方式管理代码
+   - 创建GitHub仓库
+   - 将本地代码推送到GitHub
+   - 配置.gitignore文件忽略不必要的文件
+4、django瘦身，注释掉暂时不用的插件
+   - 在`settings.py`中注释掉不需要的应用
+   - 删除不必要的静态文件和模板文件
+   - 优化数据库查询，使用`select_related`和`prefetch_related`
+   - 使用Django的缓存机制减少数据库查询
+   - 压缩静态文件，使用`django-compressor`
+   - 移除不必要的中间件
+
+##Day02
+1、创建一个视图
