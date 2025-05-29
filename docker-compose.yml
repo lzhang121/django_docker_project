@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   db:
     image: postgres:15
@@ -22,7 +20,7 @@ services:
     command: >
       sh -c "python manage.py migrate &&
              python manage.py collectstatic --noinput &&
-             gunicorn your_project.wsgi:application --bind 0.0.0.0:8081"
+             gunicorn my_project.wsgi:application --bind 0.0.0.0:8081"
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -44,7 +42,7 @@ services:
 
   celery:
     build: .
-    command: celery -A your_project worker -l info
+    command: celery -A my_project worker -l info
     volumes:
       - .:/app
     depends_on:

@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # This will make the root URL ('/') point to home.urls
+    # This is a placeholder; replace with actual app URL configuration
     path('', include('app.urls')),
 ]
