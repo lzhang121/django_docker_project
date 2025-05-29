@@ -31,6 +31,7 @@ services:
     depends_on:
       - db
       - redis
+    env_file: .env
     environment:
       DEBUG: '0'
       DJANGO_SECRET_KEY: 'your-secret-key'

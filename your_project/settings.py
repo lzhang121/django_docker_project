@@ -83,7 +83,8 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'mydb'),
         'USER': os.getenv('POSTGRES_USER', 'myuser'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'mypassword'),
-        'HOST': os.getenv('POSTGRES_HOST', 'db'),  # 在 docker-compose 中的服务名
+        # 在 docker-compose 中的服务名
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }

@@ -33,4 +33,13 @@
    - 移除不必要的中间件
 
 ##Day02
-1、创建一个视图
+1、本地调试，也能容器构建运行」的双开发环境
+   - 在本地安装Django和相关依赖
+   - 配置本地数据库连接
+   - 使用Dockerfile构建容器镜像
+   - 使用docker-compose配置本地开发环境
+   - 使用`docker-compose up`命令启动本地开发环境
+2、创建一个视图index.html
+   - 在Django应用的`templates`目录下创建`index.html`
+   - 在视图函数中渲染该模板
+   - 配置URL路由指向该视图函数
