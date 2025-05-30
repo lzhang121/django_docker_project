@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    'my_apps.web',  # Your custom app
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'my_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "my_apps" / "templates"],  # 确保这是绝对路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

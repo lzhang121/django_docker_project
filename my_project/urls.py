@@ -21,5 +21,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     # This will make the root URL ('/') point to home.urls
     # This is a placeholder; replace with actual app URL configuration
-    path('', include('app.urls')),
+    path('web/', include('my_apps.web.urls')),
+    path('api/', include('my_apps.api.urls')),
 ]
