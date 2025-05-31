@@ -18,6 +18,7 @@ def auth_view(request):
         return render(request, 'auth.html', context)
 
 
+@csrf_exempt
 def login_view(request):
     """
     A simple view to handle login.
@@ -36,19 +37,20 @@ def login_view(request):
         return render(request, 'login.html', context)
 
 
-def user_view(request):
+@csrf_exempt
+def user_view(request, action):
     """
     A simple view to handle login.
     """
+    context = {
+        # Add current time
+        'current_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z"),
+    }
     if request.method == 'POST':
         # Handle login logic here
-        return HttpResponse("Login successful")
+        context["page_title"] = "Post request {}".format(action)
+        return render(request, 'login.html', context)
     else:
         # Render an authentication form
-        context = {
-            'page_title': 'LoginPage',
-            'message': 'Hello from Django!',
-            # Add current time
-            'current_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z"),
-        }
+        context['page_title'] = "Get request from UserPage"
         return render(request, 'login.html', context)

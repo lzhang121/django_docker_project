@@ -1,45 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page_title }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        h1 {
-            color: #0056b3;
-        }
-
-        p {
-            font-size: 1.2em;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            /* To shrink container to content width */
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>{{ page_title }}</h1>
-        <p>{{ message }}</p>
-        <p>This is a simple homepage created with Django.</p>
-        <p>Current time: {{ current_time }}</p>
-    </div>
+    <h1>{{ message }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Username: <input type="text" name="username"></label><br>
+        <label>Password: <input type="password" name="password"></label><br>
+        <button type="submit">Login</button>
+    </form>
 </body>
 
 </html>
