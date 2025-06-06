@@ -1,20 +1,21 @@
 from django.urls import path, re_path
-from . import views
+from my_apps.web.views import about
+from my_apps.web.views import article
+from my_apps.web.views import content
+from my_apps.web.views import home
 
 app_name = 'app'  # This is good practice for namespacing
 
 urlpatterns = [
     # This maps the root of the app to home_view
-    path('', views.home_view, name='index'),
-    path('content_int/<int:cid>/', views.content_view, name='content_int'),
-    path('content_str/<str:cid>/', views.content_view, name='content_str'),
-    path('content_slug/<slug:cid>/', views.content_view, name='content_slug'),
-    path('content_uuid/<uuid:cid>/', views.content_view, name='content_uuid'),
-    path('content_path/<path:cid>/', views.content_view, name='content_path'),
-    path('article/', views.article, name='article'),
-    path('about/', views.about_view, name='about'),
+    path('', home.home_view, name='index'),
+    path('content_int/<int:cid>/', content.content_view, name='content_int'),
+    path('content_str/<str:cid>/', content.content_view, name='content_str'),
+    path('content_slug/<slug:cid>/', content.content_view, name='content_slug'),
+    path('content_uuid/<uuid:cid>/', content.content_view, name='content_uuid'),
+    path('content_path/<path:cid>/', content.content_view, name='content_path'),
+    path('article/', article.article_view, name='article'),
+    path('about/', about.about_view, name='about'),
     re_path(r'^content/(?P<cid>[\w-]+)/$',
-            views.content_view, name='content_regex'),
-    re_path(r'^keyword/(?P<cid>[\w-]+)/(?P<extra>\d+)/$',
-            views.keyword, name='keyword_regex'),
+            content.content_view, name='content_regex')
 ]

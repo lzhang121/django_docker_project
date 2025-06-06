@@ -84,3 +84,7 @@
    - 使用`functools.partial`可以创建一个新的函数，该函数固定了某些参数
    - 这有助于简化函数调用，特别是在需要多次调用同一函数但参数不同的情况下
    - 示例：`from functools import partial; new_func = partial(original_func, arg1, arg2)`
+
+##Day08
+1、views拆分成文件夹
+2、resolver_match判断权限正确
