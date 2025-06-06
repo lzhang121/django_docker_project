@@ -6,4 +6,5 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     # re_path(r'user/(?P<action>\w+)/?$', views.user_view, name='user'),
     path('user/<str:action>/', views.user_view, name='user_action'),
+    path('/user/dashboard/', views.user_dashboard, name='dashboard'),
 ]

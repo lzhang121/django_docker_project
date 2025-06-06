@@ -65,3 +65,22 @@
    - 使用`hasattr()`函数检查对象是否具有某个属性
    - 使用`callable()`函数检查对象是否可调用
    - 使用`dir()`函数获取对象的所有属性和方法列表
+
+##Day06
+1、别名存在的意义
+   - 提供更简洁的引用方式
+   - 避免命名冲突
+   - 增强代码可读性
+   - 方便模块重命名或重构
+
+##Day07
+1、APPEND_FLASH=False
+   - 在Django中配置`APPEND_FLASH=False`可以防止闪存消息在重定向后被追加到响应中
+   - 这有助于避免重复显示相同的闪存消息
+2、APPEND_SLASH=True
+   - 在Django中配置`APPEND_SLASH=True`可以自动在没有斜杠的URL后添加斜杠
+   - 这有助于避免因缺少斜杠而导致的404错误
+3、functools.partial偏函数
+   - 使用`functools.partial`可以创建一个新的函数，该函数固定了某些参数
+   - 这有助于简化函数调用，特别是在需要多次调用同一函数但参数不同的情况下
+   - 示例：`from functools import partial; new_func = partial(original_func, arg1, arg2)`

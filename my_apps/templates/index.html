@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home - My Django App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .box h1 {
+            margin-bottom: 10px;
+        }
+
+        .box a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .box a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Welcome to My Django App</h1>
+        <p>Select an option below:</p>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+</body>
+
+</html>

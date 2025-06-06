@@ -1,21 +1,20 @@
 import datetime
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from django.utils.timezone import now
+from django.contrib.auth import authenticate, login
 
 
 @csrf_exempt  # 实际部署时应使用 csrf_token 或 token 验证
 def auth_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        return HttpResponse(f"Username: {username}, Password: {password}")
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, username=username, password=password)
+    if user:
+        return redirect('index.html')  # 登录成功跳转
     else:
-        context = {
-            'page_title': 'AuthPage',
-            'message': 'Hello from Django!',
-            'current_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        }
-        return render(request, 'auth.html', context)
+        return render(request, 'login.html', {})
 
 
 @csrf_exempt
@@ -50,7 +49,10 @@ def user_view(request, action):
         # Handle login logic here
         context["page_title"] = "Post request {}".format(action)
         return render(request, 'login.html', context)
-    else:
-        # Render an authentication form
-        context['page_title'] = "Get request from UserPage"
-        return render(request, 'login.html', context)
+
+
+@login_required(login_url='/auth/')
+def user_dashboard(request):
+    render(request, 'dashboard.html', {
+        'current_time': now().strftime("%Y-%m-%d %H:%M:%S")
+    })
