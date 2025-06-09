@@ -1,8 +1,8 @@
 from django.urls import path, re_path
-from my_apps.web.views import about
-from my_apps.web.views import article
-from my_apps.web.views import content
-from my_apps.web.views import home
+from .views import about
+from .views import article
+from .views import content
+from .views import home
 
 app_name = 'app'  # This is good practice for namespacing
 

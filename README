@@ -88,3 +88,13 @@
 ##Day08
 1、views拆分成文件夹
 2、resolver_match判断权限正确
+
+##Day09
+1、相对路径导入
+   - 使用`.`表示当前目录，`..`表示上级目录
+   - 示例：`from . import views` 或 `from ..models import User`
+
+##Day10
+1、加上本地启动
+   - ./venv/bin/gunicorn my_project.wsgi:application --bind 0.0.0.0:8000 生产模式
+   - ./venv/bin/python manage.py runserver 8000 开发模式
